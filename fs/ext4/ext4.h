@@ -2535,7 +2535,6 @@ static inline unsigned int ext4_dirent_rec_len(unsigned int name_len,
 	return (rec_len & ~EXT4_DIR_ROUND);
 }
 
-
 static inline unsigned int
 ext4_rec_len_from_disk(__le16 dlen, unsigned blocksize)
 {
