@@ -1694,7 +1694,7 @@ static int ext4_fc_replay_create(struct super_block *sb,
 			ext4_debug("Dir %d not found.", darg.ino);
 			goto out;
 		}
-		ret = ext4_init_new_dir(NULL, dir, inode);
+		ret = ext4_init_new_dir(NULL, dir, inode, NULL, NULL);
 		iput(dir);
 		if (ret) {
 			ret = 0;
