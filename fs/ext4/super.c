@@ -1783,7 +1783,7 @@ static const struct fs_parameter_spec ext4_param_specs[] = {
 	fsparam_u32	("stripe",		Opt_stripe),
 	fsparam_flag	("delalloc",		Opt_delalloc),
 	fsparam_flag	("nodelalloc",		Opt_nodelalloc),
-	fsparam_flag    ("dirdata",             Opt_dirdata),
+	fsparam_flag	("dirdata",		Opt_dirdata),
 	fsparam_flag	("warn_on_error",	Opt_warn_on_error),
 	fsparam_flag	("nowarn_on_error",	Opt_nowarn_on_error),
 	fsparam_u32	("debug_want_extra_isize",
