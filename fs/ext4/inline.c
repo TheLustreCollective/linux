@@ -1318,7 +1318,13 @@ int ext4_inlinedir_to_tree(struct file *dir_file,
 			pos = EXT4_INLINE_DOTDOT_SIZE;
 		} else {
 			de = (struct ext4_dir_entry_2 *)(dir_buf + pos);
-			pos += ext4_rec_len_from_disk(de->rec_len, inline_size);
+			/* Use ext4_dir_entry_len to account for dirdata extensions */
+			pos += ext4_dir_entry_len(de, dir);
+			/* Validate pos doesn't exceed buffer to prevent use-after-free */
+			if (pos > inline_size) {
+				ret = count;
+				goto out;
+			}
 			if (ext4_check_dir_entry(inode, dir_file, de,
 					 iloc.bh, dir_buf,
 					 inline_size, pos)) {
